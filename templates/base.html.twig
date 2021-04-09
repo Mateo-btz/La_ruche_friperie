@@ -8,12 +8,43 @@
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('css/nav.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
     <body>
+        <nav>
+        <h1>logo</h1>
+        <ul>
+            <li><a class="link" data-text="Accueil" href="{{path('home')}}">Accueil</a></li>
+            <li><a class="link" data-text="Collections" href="#">Collection</a></li>
+            <li><a class="link" data-text="Inscription" href="{{path('app_register')}}">Inscription</a></li>
+            <li><a class="link" data-text="Connexion" href="{{path('app_login')}}">Connexion</a></li>
+        </ul>
+    </nav>
+
+    <footer>
+    <div class="social_links">
+        <a href="https://www.instagram.com/la_ruche_friperie/">
+            <span class="fa-stack fa-lg ig combo">
+                <i class="fa fa-circle fa-stack-2x circle"></i>
+                <i class="fa fa-instagram fa-stack-1x fa-inverse icon"></i>
+              </span>
+        </a>
+        <a href="https://www.facebook.com/friperielaruche/">
+            <span class="fa-stack fa-lg fb combo">
+                <i class="fa fa-circle fa-stack-2x circle"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse icon"></i>
+              </span>
+        </a>
+    </div>
+    </footer>
+
         {% block body %}{% endblock %}
     </body>
 </html>
