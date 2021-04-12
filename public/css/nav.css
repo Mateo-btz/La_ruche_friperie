@@ -1,18 +1,11 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
 nav{
+    font-family: sans-serif;
     display: flex;
     justify-content: space-between;
-    margin: 10% auto;
-    width: 80%;
+    width: auto;
     padding: 20px;
     background-color: #3d3c3c17;
     border-radius: 10px;
-    position: fixed;
     top: 0;
     
 }

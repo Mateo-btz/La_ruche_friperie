@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+
+<h2>Modification du profil de {{app.user.name}} {{app.user.firstname}}</h2>
+{{form(form)}}
+<a href="#">Valider</a>
+<a href="#">Retour</a>
+{% endblock %}

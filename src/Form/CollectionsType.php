@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 
 
@@ -20,7 +21,7 @@ class CollectionsType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('content', TextAreaType::class)
+            ->add('content', CKEditorType::class)
             // ->add('comments')
             // ->add('created_at')
             ->add('categories', EntityType::class, [
