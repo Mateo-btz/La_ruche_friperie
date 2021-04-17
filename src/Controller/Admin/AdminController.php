@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use App\Entity\Categories;
 use App\Form\CategoriesType;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
     /**
      * @Route("/admin", name="admin_")
-     * @package App\Controller
+     * @package App\Controller\Admin
      */
 class AdminController extends AbstractController
 {
@@ -29,31 +29,7 @@ class AdminController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/categories/ajout", name="categories_ajout")
-     */
-    public function ajoutCategorie(Request $request): Response
-    {
- 
-        $categorie = new Categories;
 
-        $form = $this->createForm(CategoriesType::class, $categorie);
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($categorie);
-            $em->flush();
-
-            return $this->redirectToRoute('admin_home');
-        }
-
-        return $this->render('admin/categories/ajout.html.twig', [
-            'form' => $form->createView()
-
-        ]);
-    }
 
         /**
      * @Route("/collections/ajout", name="collections_ajout")
@@ -77,6 +53,19 @@ class AdminController extends AbstractController
         return $this->render('admin/collections/ajout.html.twig', [
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/collections/supprimer/{id}", name="collections_supprimer")
+     */
+    public function Supprimer(Collections $collections)
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($collections);
+            $em->flush();
+
+            $this->addFlash('message', 'Collection supprimée avec succès');
+            return $this->redirectToRoute('admin_collections_home');
     }
 
 }

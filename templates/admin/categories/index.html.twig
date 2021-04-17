@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<h2>Espace Administrateur</h2>
+<h2>Gèrer les Catégories</h2>
+<a href="{{path('admin_categories_ajout')}}">Ajouter une catégorie d'articles</a>
+<table class="table">
+  <thead>
+    <tr class="table">
+      <th scope="col">N°</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Parent</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for categorie in categories %}
+    <tr class="table">
+      <th scope="row">{{categorie.id}}</th>
+      <td>{{categorie.name}}</td>
+      <td>{{categorie.parent}}</td>
+      <td>
+      <a href="{{path('admin_categories_modifier', {id: categorie.id} )}}">Modifier</a>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{{dump(categories)}}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!{% endblock %}
+
+{% block body %}
+<h2>Espace Administrateur</h2>
+<h2>Gèrer les Collections</h2>
+<a href="{{path('admin_collections_ajout')}}">Ajouter une collection</a>
+<table class="table">
+  <thead>
+    <tr class="table">
+      <th scope="col">N°</th>
+      <th scope="col">Titre</th>
+      <th scope="col">Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for collection in collections %}
+    <tr class="table">
+      <th scope="row">{{collection.id}}</th>
+      <td>{{collection.title}}</td>
+      <td>{{collection.createdAt|date}}</td>
+      <td>
+      <a href="{{path('admin_collections_modifier', {id: collection.id} )}}">Modifier</a>
+      <a href="{{path('admin_collections_supprimer', {id: collection.id} )}}">Supprimer</a>
+      </td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{{dump(collections)}}
+{% endblock %}
