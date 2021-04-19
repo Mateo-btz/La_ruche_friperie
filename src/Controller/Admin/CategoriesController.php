@@ -83,6 +83,19 @@ use Symfony\Component\Routing\Annotation\Route;
         ]);
     }
 
+        /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function Supprimer(Categories $categories, Request $request) : Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($categories);
+            $em->flush();
+
+            $this->addFlash('message', 'Collection supprimée avec succès');
+            return $this->redirectToRoute('admin_categories_home');
+    }
+
 }
 
 ?>

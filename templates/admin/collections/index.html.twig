@@ -3,9 +3,9 @@
 {% block title %}Hello AdminController!{% endblock %}
 
 {% block body %}
-<h2>Espace Administrateur</h2>
-<h2>Gèrer les Collections</h2>
-<a href="{{path('admin_collections_ajout')}}">Ajouter une collection</a>
+<h2 class="title-admin">Espace Administrateur</h2>
+<h2 class="title-admin">Gèrer les Collections</h2>
+<br></br>
 <table class="table">
   <thead>
     <tr class="table">
@@ -22,12 +22,14 @@
       <td>{{collection.title}}</td>
       <td>{{collection.createdAt|date}}</td>
       <td>
-      <a href="{{path('admin_collections_modifier', {id: collection.id} )}}">Modifier</a>
-      <a href="{{path('admin_collections_supprimer', {id: collection.id} )}}">Supprimer</a>
+      <a class="btn btn-lg btn-primary" href="{{path('admin_collections_modifier', {id: collection.id} )}}">Modifier</a>
+      <a class="btn btn-lg btn-danger" href="{{path('admin_collections_supprimer', {id: collection.id} )}}">Supprimer</a>
       </td>
     </tr>
 {% endfor %}
   </tbody>
 </table>
-{{dump(collections)}}
+<br></br>
+<a class="btn btn-lg btn-primary" href="{{path('admin_collections_ajout')}}">Ajouter une collection</a>
+<a class="btn btn-lg btn-danger" href="{{path('admin_home')}}">Retour</a>
 {% endblock %}

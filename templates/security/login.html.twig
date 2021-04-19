@@ -3,6 +3,7 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<h2 class="title">Connexion</h2>
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -10,11 +11,9 @@
 
     {% if app.user %}
         <div class="mb-3">
-            Heureux de vous voir, {{ app.user.username }}. <a href="{{ path('app_logout') }}">Déconnexion</a>
+            Heureux de vous voir, {{ app.user.name }}. <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
     <label for="inputPassword">mot de passe</label>
@@ -34,10 +33,9 @@
             </label>
         </div>
     #}
-
+<p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a></p>
     <button class="btn btn-lg btn-primary" type="submit">
         Connexion
     </button>
 </form>
-<p><a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a></p>
 {% endblock %}

@@ -1,12 +1,63 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h1 class="title">La Ruche</h1>
+<img src="{{ asset('img/devanture.jpg') }}" class="devantureImg">
+<br></br>
 
-<h1>Contenu de la landing page</h1>
+<div class="landing-container">
+    <section class="openinghours">
+        <div class="openinghourscontent section">
+            <div class="header">
+    {# <span id="open-status"><small class="openorclosed">Nous sommes</small></span> #}
+            </div>
+        <table class="opening-hours-table">
+            
+            <tr id="Monday" itemprop="openingHours">
+                    <td>Lundi</td>
+                    <td>Fermé</td>
+                </tr>
+                <tr id="Tuesday" itemprop="openingHours">
+                    <td>Mardi</td>
+                    <td class="opens">09:30</td>
+                    <td>-</td>
+                    <td class="closes">18:30</td>
+                </tr>
+                <tr id="Wednesday" itemprop="openingHours">
+                    <td>Mercredi</td>
+                    <td class="opens">09:30</td>
+                    <td>-</td>
+                    <td class="closes">18:30</td>
+                </tr>
+                <tr id="Thursday" itemprop="openingHours">
+                    <td>Jeudi</td>
+                    <td class="opens">09:30</td>
+                    <td>-</td>
+                    <td class="closes">18:30</td>
+                </tr>
+                <tr id="Friday" itemprop="openingHours">
+                    <td>Vendredi</td>
+                    <td class="opens">08:30</td>
+                    <td>-</td>
+                    <td class="closes">20:25</td>
+                </tr>
+                <tr id="Saturday" itemprop="openingHours">
+                    <td>Samedi</td>
+                    <td class="opens">08:30</td>
+                    <td>-</td>
+                    <td class="closes">18:30</td>
+                </tr>
+                <tr id="Sunday" itemprop="openingHours">
+                    <td>Dimanche</td>
+                    <td>Fermé</td>
+                </tr>
+        </table>       
+        </div>
+    </section>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d697.7900194393329!2d4.065247!3d45.607427!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc56210c09f513b63!2sLa%20Ruche%20(Boutique%20Friperie)!5e0!3m2!1sfr!2sfr!4v1618834426144!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+
 {% endblock %}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\CollectionsRepository;
 
 class HomeController extends AbstractController
 {
@@ -24,5 +25,15 @@ class HomeController extends AbstractController
     public function mentions(): Response
     {
         return $this->render('home/mentions.html.twig');
+    }
+
+    /**
+     * @Route("/collectionslist", name="collections_list")
+     */
+    public function CollectionsList(CollectionsRepository $CollectionsRepo)
+    {
+        return $this->render('home/collectionslist.html.twig', [
+            'collections' => $CollectionsRepo->findAll()
+        ]);
     }
 }

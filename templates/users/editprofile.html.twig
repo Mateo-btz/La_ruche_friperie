@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<h2>Modification du profil de {{app.user.name}} {{app.user.firstname}}</h2>
+<h2 style="text-align: center;">Modification du profil de {{app.user.name}} {{app.user.firstname}}</h2>
 {{form(form)}}
-<a href="#">Valider</a>
-<a href="#">Retour</a>
+<a class="btn btn-lg btn-primary" href="#">Valider</a>
+<a class="btn btn-lg btn-danger" href="{{path('users')}}">Retour</a>
 {% endblock %}

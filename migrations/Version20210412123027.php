@@ -21,7 +21,7 @@ final class Version20210412123027 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         // $this->addSql('ALTER TABLE collections CHANGE users_id users_id INT NOT NULL');
-        $this->addSql('ALTER TABLE users ADD name VARCHAR(100) NOT NULL, ADD firstname VARCHAR(100) NOT NULL');
+        // $this->addSql('ALTER TABLE users ADD name VARCHAR(100) NOT NULL, ADD firstname VARCHAR(100) NOT NULL');
     }
 
     public function down(Schema $schema) : void

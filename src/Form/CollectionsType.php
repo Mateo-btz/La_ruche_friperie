@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use FOS\CKEditorBundle\Form\Type\CKEditorType;
 
 
@@ -26,6 +27,13 @@ class CollectionsType extends AbstractType
             // ->add('created_at')
             ->add('categories', EntityType::class, [
                 'class' => Categories::class
+            ])
+
+            ->add('images', FileType::class,[
+                'label' => false,
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false
             ])
             ->add('Ajouter', SubmitType::class)
 

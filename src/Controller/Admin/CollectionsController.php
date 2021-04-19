@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Categories;
 use App\Form\CategoriesType;
 use App\Entity\Collections;
+use App\Entity\Images;
 use App\Form\CollectionsType;
 use App\Repository\CollectionsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,30 +29,6 @@ use Symfony\Component\Routing\Annotation\Route;
     {
         return $this->render('admin/collections/index.html.twig', [
             'collections' => $CollectionsRepo->findAll()
-        ]);
-    }
-
-    /**
-     * @Route("/modifier/{id}", name="modifier")
-     */
-    public function ModifCollections(Collections $collections, Request $request): Response
-    {
-
-        $form = $this->createForm(CollectionsType::class, $collections);
-
-        $form->handleRequest($request);
-
-        if($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($collections);
-            $em->flush();
-
-            return $this->redirectToRoute('admin_collections_home');
-        }
-
-        return $this->render('admin/collections/ajout.html.twig', [
-            'form' => $form->createView()
-
         ]);
     }
 }

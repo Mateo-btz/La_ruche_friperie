@@ -5,5 +5,21 @@
 {% block body %}
 
 <h1>Ajouter une collection</h1>
+
+
 {{form(form)}}
+
+
+{# On vérifie que la route est bien collections_modifier pour afficher la page #}
+{# {% if app.request.attributes.get('_route') == 'collections_modifier' %} #}
+
+{# {% for image in collection.images %}
+<div>
+ <img src="{{asset('/uploads/' ~ image.name) }}" alt="image" width="150">
+ <a href="{{ path('collections_supprimer_image', {id: image.id}) }}"
+ data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">
+Supprimer
+</div>
+{% endfor %} #}
+{# {% endif %} #}
 {% endblock %}

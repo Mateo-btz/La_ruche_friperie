@@ -1,12 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UsersController!{% endblock %}
+{% block title %}Page Profil{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
 	<div>
 		{% for message in app.flashes('message') %}
@@ -14,7 +10,13 @@
 				<div>{{message}}</div>
 			</div>
 		{% endfor %}
-<h2>Bienvenue, {{app.user.name}}</h2>
-<a href="{{path('users_profil_modifier')}}">Modifier le profil</a>
-<a href="{{path('users_password_modifier')}}">Modifier le mot de passe</a>
+<br></br>
+<h2 style="text-align: center;">Bienvenue, {{app.user.name}}</h2>
+    {% if app.user %}
+        <div class="mb-3" style="text-align: center;">
+            Heureux de vous voir, {{ app.user.name }}. Cliquez <a href="{{ path('app_logout') }}">ICI</a> pour vous déconnecter
+        </div>
+    {% endif %}
+<a class="btn btn-lg btn-primary"  href="{{path('users_profil_modifier')}}">Modifier le profil</a>
+<a class="btn btn-lg btn-primary"  href="{{path('users_password_modifier')}}">Modifier le mot de passe</a>
 {% endblock %}
