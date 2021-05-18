@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Gèrer les collections{% endblock %}
 
 {% block body %}
 <h2 class="title-admin">Espace Administrateur</h2>
@@ -22,8 +22,8 @@
       <td>{{collection.title}}</td>
       <td>{{collection.createdAt|date}}</td>
       <td>
-      <a class="btn btn-lg btn-primary" href="{{path('admin_collections_modifier', {id: collection.id} )}}">Modifier</a>
-      <a class="btn btn-lg btn-danger" href="{{path('admin_collections_supprimer', {id: collection.id} )}}">Supprimer</a>
+      <a class="btn btn-primary" href="{{path('admin_collections_modifier', {id: collection.id} )}}">Modifier</a>
+      <a class="btn btn-danger" href="{{path('admin_collections_supprimer', {id: collection.id} )}}">Supprimer</a>
       </td>
     </tr>
 {% endfor %}

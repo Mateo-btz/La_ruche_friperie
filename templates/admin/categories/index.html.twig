@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Gèrer les catégories{% endblock %}
 
 {% block body %}
 <h2 class="title-admin">Espace Administrateur</h2>
@@ -21,16 +21,18 @@
       <th scope="row">{{categorie.id}}</th>
       <td>{{categorie.name}}</td>
       <td>{{categorie.parent}}</td>
-      <td>
-      <a class="btn btn-lg btn-primary" href="{{path('admin_categories_modifier', {id: categorie.id} )}}">Modifier</a>
-      <a class="btn btn-lg btn-danger" href="{{path('admin_categories_supprimer', {id: categorie.id} )}}">Supprimer</a>
+      <td class="btn-container">
+      <a class="btn btn btn-primary" href="{{path('admin_categories_modifier', {id: categorie.id} )}}">Modifier</a>
+      <a class="btn btn btn-danger" href="{{path('admin_categories_supprimer', {id: categorie.id} )}}">Supprimer</a>
       </td>
     </tr>
 {% endfor %}
   </tbody>
 </table>
 <br></br>
+<div class="admin-buttons">
 <a class="btn btn-lg btn-primary" href="{{path('admin_categories_ajout')}}">Ajouter une catégorie d'articles</a>
 <a class="btn btn-lg btn-danger" href="{{path('admin_home')}}">Retour</a>
+</div>
 
 {% endblock %}

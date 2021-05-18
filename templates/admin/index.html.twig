@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!{% endblock %}
+{% block title %}Accueil Administrateur{% endblock %}
 
 {% block body %}
 <h2 class="title-admin">Espace Administrateur</h2>
 <h2 class="title-admin">Gèrer les collections</h2>
 <br></br>
+<div class="admin-buttons">
     <a class="btn btn-lg btn-primary"  href="{{path('admin_categories_ajout')}}">Ajouter une catégorie d'articles</a>
     <a class="btn btn-lg btn-primary"  href="{{path('admin_categories_home')}}">Gèrer les catégories</a>
     <br></br>
     <a class="btn btn-lg btn-primary"  href="{{path('admin_collections_ajout')}}">Ajouter une nouvelle collection</a>
     <a class="btn btn-lg btn-primary"  href="{{path('admin_collections_home')}}">Gèrer les collections</a>
-
+</div>
 {% endblock %}

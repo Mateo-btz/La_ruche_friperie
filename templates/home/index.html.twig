@@ -3,10 +3,18 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1 class="title">La Ruche</h1>
-<img src="{{ asset('img/devanture.jpg') }}" class="devantureImg">
+<section class="curved">
 <br></br>
+<h1 class="title" style="color: white;">La Ruche</h1>
+<p class="about" style="color: white;">Boutique Friperie</p>
+<img src="{{ asset('img/devanture.jpg') }}" class="devantureImg">
+<div style="display: flex; justify-content: center">
+<a class="homeBtn" href="{{path('collections_list')}}">Voir les articles</a>
+</div>
+<br></br>
+</section>
 
+<br></br>
 <div class="landing-container">
     <section class="openinghours">
         <div class="openinghourscontent section">
@@ -21,33 +29,33 @@
                 </tr>
                 <tr id="Tuesday" itemprop="openingHours">
                     <td>Mardi</td>
-                    <td class="opens">09:30</td>
+                    <td class="opens">09h30  12h</td>
                     <td>-</td>
-                    <td class="closes">18:30</td>
+                    <td class="closes">13h30  18h30</td>
                 </tr>
                 <tr id="Wednesday" itemprop="openingHours">
                     <td>Mercredi</td>
-                    <td class="opens">09:30</td>
+                    <td class="opens">09h30  12h</td>
                     <td>-</td>
-                    <td class="closes">18:30</td>
+                    <td class="closes">13h30 18h30</td>
                 </tr>
                 <tr id="Thursday" itemprop="openingHours">
                     <td>Jeudi</td>
-                    <td class="opens">09:30</td>
+                    <td class="opens">09h30 12h</td>
                     <td>-</td>
-                    <td class="closes">18:30</td>
+                    <td class="closes">13h30 18h30</td>
                 </tr>
                 <tr id="Friday" itemprop="openingHours">
                     <td>Vendredi</td>
-                    <td class="opens">08:30</td>
+                    <td class="opens">08h30 12h</td>
                     <td>-</td>
-                    <td class="closes">20:25</td>
+                    <td class="closes">13h30 20:25</td>
                 </tr>
                 <tr id="Saturday" itemprop="openingHours">
                     <td>Samedi</td>
-                    <td class="opens">08:30</td>
+                    <td class="opens">08h30 12h</td>
                     <td>-</td>
-                    <td class="closes">18:30</td>
+                    <td class="closes">13h30 18h30</td>
                 </tr>
                 <tr id="Sunday" itemprop="openingHours">
                     <td>Dimanche</td>
@@ -58,6 +66,9 @@
     </section>
 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d697.7900194393329!2d4.065247!3d45.607427!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc56210c09f513b63!2sLa%20Ruche%20(Boutique%20Friperie)!5e0!3m2!1sfr!2sfr!4v1618834426144!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 </div>
-
-
+    <h3 class="title">Qui sommes-nous ?</h3>
+    <br></br>
+    <p class="about">Nous sommes actuellement dans une ère nouvelle : Celle du capitalisme et de la surconsommation. Nous jetons tout ce qui est usé, et voulons toujours plus de neuf.
+                     Cette course folle doit s'arrêter et en tant qu'être humains, nous devons prendre nos responsabilités. C'est sur ce fondement qu'a été crée la Ruche.
+                     Nous nous engageons a ne proposer que des vêtements d'occasions, sans défauts ni usures. Le respect de l'environnement est notre priorité !</p>
 {% endblock %}
