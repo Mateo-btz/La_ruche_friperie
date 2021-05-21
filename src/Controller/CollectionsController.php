@@ -2,10 +2,16 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Collections;
+use App\Entity\Comments;
+use App\Entity\Users;
+use App\Form\CommentsType;
 use App\Repository\CollectionsRepository;
+use App\Repository\CategoriesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -19,7 +25,7 @@ class CollectionsController extends AbstractController
     /**
      * @Route("/details/{title}", name="details")
      */
-    public function details($title, CollectionsRepository $collectionsRepo)
+    public function details($title, CollectionsRepository $collectionsRepo, Request $request)
     {
         $collection = $collectionsRepo->findOneBy(['title' => $title]);
         
@@ -27,6 +33,47 @@ class CollectionsController extends AbstractController
             throw new NotFoundHttpException('Pas de collection trouvée');
         }
 
-        return $this->render('collections/details.html.twig', compact('collection'));
+        // return $this->render('collections/details.html.twig', compact('collection'));
+
+
+
+        $comment = new Comments;
+        // $user = $this->getUser();
+        $commentForm = $this->createForm(CommentsType::class, $comment);
+    
+        $commentForm->handleRequest($request);
+
+        if($commentForm->isSubmitted() && $commentForm->isValid()){
+
+            $comment->setCreatedAt(new DateTime());
+            $comment->setCollections($collection);
+
+            $parentid = $commentForm->get("parentid")->getData();
+
+
+            $em = $this->getDoctrine()->getManager();
+
+            if($parentid != null){
+                $parent = $em->getRepository(Comments::class)->find($parentid);
+            }
+
+            // On définit le parent
+            $comment->setParent($parent ?? null);
+            
+            $em->persist($comment);
+            $em->flush();
+
+            $this->addFlash('message', 'votre commentaire a bien été envoyé');
+            return $this->redirectToRoute('collections_details', ['title' =>
+            $collection->getTitle()]);
+        }
+
+    
+        return $this->render('collections/details.html.twig', [
+            'collection' => $collection,
+            'commentForm' => $commentForm->createView()
+        ]);
     }
 }
+
+

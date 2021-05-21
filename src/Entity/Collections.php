@@ -31,11 +31,6 @@ class Collections
     private $content;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $comments;
-
-    /**
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
@@ -58,9 +53,15 @@ class Collections
      */
     private $images;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="collections", orphanRemoval=true)
+     */
+    private $comments;
+
     public function __construct()
     {
         $this->images = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -92,7 +93,7 @@ class Collections
         return $this;
     }
 
-    public function getComments(): ?string
+    public function getComments(): Collection
     {
         return $this->comments;
     }
@@ -157,6 +158,28 @@ class Collections
             // set the owning side to null (unless already changed)
             if ($image->getCollections() === $this) {
                 $image->setCollections(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->Comments->contains($comment)) {
+            $this->Comments[] = $comment;
+            $comment->setCollections($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->Comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getCollections() === $this) {
+                $comment->setCollections(null);
             }
         }
 
