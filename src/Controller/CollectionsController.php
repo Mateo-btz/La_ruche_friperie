@@ -38,12 +38,12 @@ class CollectionsController extends AbstractController
 
 
         $comment = new Comments;
-        // $user = $this->getUser();
+        $user = $this->getUser();
         $commentForm = $this->createForm(CommentsType::class, $comment);
     
         $commentForm->handleRequest($request);
 
-        if($commentForm->isSubmitted() && $commentForm->isValid()){
+        if($user && $commentForm->isSubmitted() && $commentForm->isValid()){
 
             $comment->setCreatedAt(new DateTime());
             $comment->setCollections($collection);
@@ -66,6 +66,8 @@ class CollectionsController extends AbstractController
             $this->addFlash('message', 'votre commentaire a bien été envoyé');
             return $this->redirectToRoute('collections_details', ['title' =>
             $collection->getTitle()]);
+        } elseif (!$user){
+            $this->addFlash('message', 'vous devez vous connecter pour laisser un commentaire');
         }
 
     

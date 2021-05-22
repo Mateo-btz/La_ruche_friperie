@@ -7,7 +7,7 @@
 <h2 class="title">{{collection.title}}</h2>
 <br></br>
 
-<p>{{collection.content}}</p>
+<p class="title">{{collection.content|raw}}</p>
 <div class="caroulix" id="example-caroulix" data-ax="caroulix" data-ax-caroulix-autoplay-enabled="true" data-caroulix-indicators-enabled="true">
   <div class="caroulix-arrow caroulix-prev">
     <i class="fa fa-chevron-left"></i>
@@ -24,15 +24,16 @@
 </div>
 
 
-<div>
-<h2>Commentaires</h2>
 
+<h2>Commentaires</h2>
 {% for comment in collection.comments %}
+<div class="comment-container">
+<p>{{app.user.name}}</p>
 <p>{{comment.content|raw}}</p>
 <p>Commentaire Publié le {{comment.createdAt|date("d/m/Y H:i")}}</p>
+</div>
 {% endfor %}
 {{form(commentForm)}}
-</div>
 
 {% endblock %}
 

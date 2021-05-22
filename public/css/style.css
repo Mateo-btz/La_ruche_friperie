@@ -27,6 +27,15 @@ h6 {
     margin-right: auto;
 }
 
+.comment-container {
+  margin: 5px;
+  border: 2px grey solid;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
 /* BOUTON EYE-CATCH */
 .homeBtn {
   width: 50vh;
