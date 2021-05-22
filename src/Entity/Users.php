@@ -58,9 +58,15 @@ class Users implements UserInterface
      */
     private $firstname;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="users_id")
+     */
+    private $comment;
+
     public function __construct()
     {
         $this->collections = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -209,4 +215,35 @@ class Users implements UserInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComment(): Collection
+    {
+        return $this->comment;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comment->contains($comment)) {
+            $this->comment[] = $comment;
+            $comment->setUsersId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comment->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getUsersId() === $this) {
+                $comment->setUsersId(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

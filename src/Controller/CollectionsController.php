@@ -47,7 +47,7 @@ class CollectionsController extends AbstractController
 
             $comment->setCreatedAt(new DateTime());
             $comment->setCollections($collection);
-
+            $comment->setUsers($user);
             $parentid = $commentForm->get("parentid")->getData();
 
 
@@ -73,6 +73,7 @@ class CollectionsController extends AbstractController
     
         return $this->render('collections/details.html.twig', [
             'collection' => $collection,
+            'user' => $user,
             'commentForm' => $commentForm->createView()
         ]);
     }

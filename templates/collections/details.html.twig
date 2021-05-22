@@ -28,7 +28,7 @@
 <h2>Commentaires</h2>
 {% for comment in collection.comments %}
 <div class="comment-container">
-<p>{{app.user.name}}</p>
+<p>{{comment.users.name}}</p>
 <p>{{comment.content|raw}}</p>
 <p>Commentaire Publié le {{comment.createdAt|date("d/m/Y H:i")}}</p>
 </div>

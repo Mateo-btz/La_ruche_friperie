@@ -50,15 +50,11 @@ class Comments
      */
     private $replies;
 
-    public function __construct()
-    {
-        $this->replies = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
+    /**
+     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="collections")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $users;
 
     public function getContent(): ?string
     {
@@ -149,4 +145,18 @@ class Comments
 
         return $this;
     }
+
+    public function getUsers(): ?Users
+    {
+        return $this->users;
+    }
+
+    public function setUsers(?Users $users): self
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+
 }
