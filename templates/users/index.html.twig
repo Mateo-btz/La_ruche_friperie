@@ -14,7 +14,7 @@
 <h2 style="text-align: center;">Bienvenue, {{app.user.name}}</h2>
     {% if app.user %}
         <div class="mb-3" style="text-align: center;">
-            Heureux de vous voir, {{ app.user.name }}. Cliquez <a href="{{ path('app_logout') }}">ICI</a> pour vous déconnecter
+            Heureux de vous revoir, {{ app.user.name }}. Cliquez <a href="{{ path('app_logout') }}">ICI</a> pour vous déconnecter
         </div>
     {% endif %}
 <a class="btn btn-lg btn-primary"  href="{{path('users_profil_modifier')}}">Modifier le profil</a>

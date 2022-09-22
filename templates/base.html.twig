@@ -19,6 +19,11 @@
     <body>
       <nav class="menu-desktop">
         <img src="{{asset('img/logo.jpg')}}" class="logo">
+            {% if app.user %}
+        <div class="mb-3 logout_message">
+            Heureux de vous voir, {{ app.user.name }}. <a href="{{ path('app_logout') }}">Déconnexion</a>
+        </div>
+    {% endif %}
         <ul>
             <li><a class="link" data-text="Accueil" href="{{path('home')}}">Accueil</a></li>
             <li><a class="link" data-text="Collections" href="{{path('collections_list')}}">Collections</a></li>
@@ -99,19 +104,22 @@ s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
           <div class="col-xs-6 col-md-3">
             <h6>Liens rapides</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">Qui sommes-nous ?</a></li>
-              <li><a href="http://scanfcode.com/contact/">Contact</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Politique de confidentialité</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Voir sur Google</a></li>
+              <li><a href="#">Qui sommes-nous ?</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Voir sur Google</a></li>
             </ul>
           </div>
+          <div class="col-xs-6 col-md-3">
+            <img src="{{asset('img/montbrison.png')}}" class="footer-logo">
+          </div>
         </div>
-        <hr>
       </div>
+      <hr>
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Made by Matibalt
+            <p class="copyright-text">Made by <a href="http://www.matibalt.com">Matibalt</a>
             </p>
           </div>
 

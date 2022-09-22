@@ -48,17 +48,17 @@ class CollectionsController extends AbstractController
             $comment->setCreatedAt(new DateTime());
             $comment->setCollections($collection);
             $comment->setUsers($user);
+             
+            // on récupère le contenu du champ parentid
             $parentid = $commentForm->get("parentid")->getData();
 
 
             $em = $this->getDoctrine()->getManager();
-
-            if($parentid != null){
-                $parent = $em->getRepository(Comments::class)->find($parentid);
-            }
+            $parent = $em->getRepository(Comments::class)->find($parentid);
+           
 
             // On définit le parent
-            $comment->setParent($parent ?? null);
+            $comment->setParent($parent);
             
             $em->persist($comment);
             $em->flush();

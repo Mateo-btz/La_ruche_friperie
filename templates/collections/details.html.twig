@@ -24,23 +24,34 @@
 </div>
 
 
-
-<h2>Commentaires</h2>
+{# FONCTIONNALITE COMMENTAIRE A AJOUTER PLUS TARD }
+{# <h2>Commentaires</h2>
 {% for comment in collection.comments %}
 <div class="comment-container">
 <p>{{comment.users.name}}</p>
 <p>{{comment.content|raw}}</p>
 <p>Commentaire Publié le {{comment.createdAt|date("d/m/Y H:i")}}</p>
+<p><a href="#ajout-commentaire" data-reply data-id="{{comment.id}}">Répondre</a></p>
 </div>
 {% endfor %}
+<div id="ajout-commentaire">
 {{form(commentForm)}}
+</div>
 
 {% endblock %}
 
 {% block javascript %}
 <script>
-CKEDITOR.config.allowedContent = true;
 let caroulix = new Axentix.Caroulix('#example-caroulix');
 caroulix.next();
-</script>
+
+// Ajout d'un écouteur d'évenement pr les btn Répondre
+window.onload = () => {
+document.querySelectorAll("[data-reply]").forEach(element => {
+  element.addEventListener('click', function(){
+       document.querySelector('#comments_parentid').value = this.dataset.id;
+  });
+});
+}
+</script> #}
 {% endblock %}

@@ -56,6 +56,12 @@ class Comments
      */
     private $users;
 
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    
     public function getContent(): ?string
     {
         return $this->content;
