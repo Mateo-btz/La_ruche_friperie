@@ -18,7 +18,9 @@
     </head>
     <body>
       <nav class="menu-desktop">
+        <a href="{{path('home')}}">
         <img src="{{asset('img/logo.jpg')}}" class="logo">
+        </a>
             {% if app.user %}
         <div class="mb-3 logout_message">
             Heureux de vous voir, {{ app.user.name }}. <a href="{{ path('app_logout') }}">Déconnexion</a>
