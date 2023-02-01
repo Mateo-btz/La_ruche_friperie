@@ -37,12 +37,6 @@ class Collections
     private $created_at;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Users::class, inversedBy="collections")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $users;
-
-    /**
      * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="collections")
      * @ORM\JoinColumn(nullable=false)
      */
