@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Accueil{% endblock %}</title>
+        <meta name="viewport" content="width=device-width">
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/css/axentix.min.css">
@@ -95,43 +96,17 @@ s60.2,40,120,40s59.8,0,59.8,0l0.2,143H-60V96L-40,95.6z"></path>
 
 <footer class="site-footer">
     <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>A propos</h6>
-            <p class="text-justify">La Ruche est un commerce indépendant qui s'engage à toujours proposer des vêtements d'occasions et de bonne qualité
-            dans le respect de l'environnement.
-            Nous ne proposons pas de dépôt-vente, et ne reprenons pas les articles vendus.</p>
-          </div>
-
-          <div class="col-xs-6 col-md-3">
-            <h6>Liens rapides</h6>
-            <ul class="footer-links">
-              <li><a href="#">Qui sommes-nous ?</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">Politique de confidentialité</a></li>
-              <li><a href="#">Voir sur Google</a></li>
-            </ul>
-          </div>
-          <div class="col-xs-6 col-md-3">
-            <img src="{{asset('img/montbrison.png')}}" class="footer-logo">
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Made by <a href="http://www.matibalt.com">Matibalt</a>
-            </p>
-          </div>
-
-          <div class="col-md-4 col-sm-6 col-xs-12">
-            <ul class="social-icons">
-              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a class="twitter" href="#"><i class="fa fa-instagram"></i></a></li>  
-            </ul>
-          </div>
-        </div>
+        <p class="text-justify">La Ruche est un commerce indépendant qui s'engage à toujours proposer des vêtements d'occasions et de bonne qualité
+        dans le respect de l'environnement.
+        Nous ne proposons pas de dépôt-vente, et ne reprenons pas les articles vendus.</p>
+        <hr>
+    </div>
+      <div class="sub-footer container">
+        <p class="copyright-text">Made by <a href="http://www.matibalt.fr" target="_blank">Matibalt</a></p>
+        <ul class="social-icons">
+          <li><a class="facebook" href="https://fr-fr.facebook.com/friperielaruche/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+          <li><a class="twitter" href="https://www.instagram.com/la_ruche_friperie/?hl=fr" target="_blank"><i class="fa fa-instagram"></i></a></li>  
+        </ul>
       </div>
 </footer>
 </body>
