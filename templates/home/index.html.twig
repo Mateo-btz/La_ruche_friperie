@@ -3,15 +3,26 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+
 <section class="curved">
-<br></br>
-<h1 class="title" style="color: white;">La Ruche</h1>
-<p class="about" style="color: white;">Boutique Friperie</p>
-<img src="{{ asset('img/devanture.jpg') }}" class="devantureImg">
-<div style="display: flex; justify-content: center">
-<a class="homeBtn" href="{{path('collections_list')}}">Voir les articles</a>
-</div>
-<br></br>
+    <br></br>
+    <h1 class="title" style="color: white;">La Ruche</h1>
+    <p class="about" style="color: white;">Boutique Friperie</p>
+    <div class="main-carousel">
+        <div class="carousel-cell">
+            <img src="{{ asset('img/devanture1.jpg') }}" class="devantureImg">
+        </div>
+        <div class="carousel-cell">
+            <img src="{{ asset('img/devanture2.jpg') }}" class="devantureImg">
+        </div>
+        <div class="carousel-cell">
+            <img src="{{ asset('img/devanture3.jpg') }}" class="devantureImg">
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center">
+        <a class="homeBtn" href="{{path('collections_list')}}">Voir les articles</a>
+    </div>
+    <br></br>
 </section>
 
 <br></br>
