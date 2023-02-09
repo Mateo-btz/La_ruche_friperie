@@ -149,7 +149,7 @@ margin-right: auto;
 }
 
 .landing-container {
-
+    margin-top: 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -750,9 +750,7 @@ border-bottom-right-radius: 12px;
 .curved {
   position: relative;
   background: #014c4f;
-  height: auto;
-  border-bottom-left-radius: 50% 15%;
-  border-bottom-right-radius: 50% 15%;
+  height: 802px;
 }
 
 .sep-row{
@@ -765,6 +763,10 @@ border-bottom-right-radius: 12px;
   flex-direction: column;
   position:relative;
   background-color: #014c4f;
+}
+
+.reverse {
+  transform: rotate(180deg);
 }
 
 /* -- SVG CSS -- */
