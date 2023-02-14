@@ -32,8 +32,7 @@ h6 {
   border: 2px grey solid;
   width: 90%;
   margin-left: auto;
-  margin-right: auto;
-  
+  margin-right: auto;  
 }
 
 /* BOUTON EYE-CATCH */
@@ -173,6 +172,7 @@ margin-right: auto;
     text-align: center;
     font-size: 50px;
 }
+
 .about {
   font-family: 'Dancing Script', cursive;
   text-align: center;
@@ -183,6 +183,14 @@ margin-right: auto;
   line-height: 4rem;
 }
 
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.visible {
+  transition: opacity 0.5s ease-in;
+  opacity: 1;
+}
 
 /* Heures d'ouverture   */
 .openinghours {
@@ -768,6 +776,7 @@ border-bottom-right-radius: 12px;
 .reverse {
   transform: rotate(180deg);
 }
+
 
 /* -- SVG CSS -- */
 
